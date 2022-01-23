@@ -10,3 +10,14 @@
 :root {
   --font-family: 'Lato', sans-serif;
 }
+
+.navIcon {
+  font-size: 18px;
+  margin-right: 6px;
+}
+
+@media  screen and (max-width: 480px) {
+  .navIcon {
+    display: none;
+  }
+}

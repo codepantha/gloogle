@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { BsSearch } from "react-icons/bs";
 
 const Search = () => {
   const [input, setInput] = useState("");
   return (
     <div className="self-center w-100 mb2">
-      <input
-        type="text"
-        className="w-100 pa3 ba b--near-white br3 shadow-5 gray"
-        placeholder="Type something..."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
+      <div className="w-100 flex shadow-5 br3">
+        <div className="w-5 pa3 ba br3 br--left b--near-white gray" style={{ width: '5%', borderRight: 'none' }}>
+          <BsSearch className="gray" />
+        </div>
+        <input
+          type="text"
+          className="pa3 ba b--near-white br3 br--right gray outline-0"
+          style={{ width: '95%', borderLeft: 'none' }}
+          placeholder="Type something..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        </div>
     </div>
   );
 };
