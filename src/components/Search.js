@@ -1,8 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { useDebounce } from 'use-debounce';
+import { getResults } from "../redux/results/results";
 
 const Search = () => {
   const [input, setInput] = useState("");
+  const [debouncedValue] = useDebounce(input, 300);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getResults('search', debouncedValue));
+  }, [debouncedValue, dispatch]);
+
   return (
     <div className="self-center w-100 mb2">
       <div className="w-100 flex shadow-5 br3">
