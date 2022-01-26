@@ -7,6 +7,12 @@
 
 body {
   padding-bottom: 350px;
+  overflow-x: hidden;
+}
+
+.App {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');

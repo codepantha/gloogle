@@ -1,11 +1,11 @@
-import React from "react";
-import { AiOutlineMenu } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { BsCardImage } from "react-icons/bs";
-import { TiNews } from "react-icons/ti";
-import { BsPlayBtnFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
-import Search from "./Search";
+import React from 'react';
+import { AiOutlineMenu } from 'react-icons/ai';
+import { BsSearch } from 'react-icons/bs';
+import { BsCardImage } from 'react-icons/bs';
+import { TiNews } from 'react-icons/ti';
+import { BsPlayBtnFill } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
+import Search from './Search';
 
 const Header = () => {
   return (
@@ -25,22 +25,50 @@ const Header = () => {
       </div>
       <Search />
       <nav className="w-100 flex justify-between justify-around-m justify-center-l gap-4 items-end mt1">
-        <Link to="/search" className="gray link link:active pointer bb mh3-l flex items-center">
+        <NavLink
+          to="/search"
+          className={({ isActive }) =>
+            isActive
+              ? "gray link link:active pointer bb mh3-l flex items-center"
+              : "gray link pointer mh3-l flex items-center"
+          }
+        >
           <BsSearch className="navIcon" />
           <p className="f5">Search</p>
-        </Link>
-        <Link to="/images" className="gray link link:active pointer mh3-l flex items-center">
+        </NavLink>
+        <NavLink
+          to="/images"
+          className={({ isActive }) =>
+            isActive
+              ? "gray link link:active pointer bb mh3-l flex items-center"
+              : "gray link pointer mh3-l flex items-center"
+          }
+        >
           <BsCardImage className="navIcon" />
           <p className="f5">Images</p>
-        </Link>
-        <Link to="/news" className="gray link link:active pointer mh3-l flex items-center">
+        </NavLink>
+        <NavLink
+          to="/news"
+          className={({ isActive }) =>
+            isActive
+              ? "gray link link:active pointer bb mh3-l flex items-center"
+              : "gray link pointer mh3-l flex items-center"
+          }
+        >
           <TiNews className="navIcon" />
           <p className="f5">News</p>
-        </Link>
-        <Link to="/videos" className="gray link link:active pointer mh3-l flex items-center">
+        </NavLink>
+        <NavLink
+          to="/videos"
+          className={({ isActive }) =>
+            isActive
+              ? "gray link link:active pointer bb mh3-l flex items-center"
+              : "gray link pointer mh3-l flex items-center"
+          }
+        >
           <BsPlayBtnFill className="navIcon" />
           <p className="f5">Videos</p>
-        </Link>
+        </NavLink>
       </nav>
     </section>
   );
