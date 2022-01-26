@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 import { useDebounce } from 'use-debounce';
 import { getResults } from "../redux/results/results";
 
@@ -9,10 +10,12 @@ const Search = () => {
   const [debouncedValue] = useDebounce(input, 300);
 
   const dispatch = useDispatch();
+  const location = useLocation()
+  const searchType = location.pathname
 
   useEffect(() => {
-    dispatch(getResults('search', debouncedValue));
-  }, [debouncedValue, dispatch]);
+    dispatch(getResults(searchType, debouncedValue));
+  }, [debouncedValue, searchType, dispatch]);
 
   return (
     <div className="self-center w-100 mb2">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -16,19 +16,27 @@ const Results = () => {
       return (
         <section className="w-100 bg-near-white min-vh-100 pt1 pt2-l">
           <div className="w-100 w-70-m w-70-l">
-            {results.length ? results?.map(({ link, title, description }) => (
-              <div key={uuidv4()} className="w-100 bg-white mb2 pa3">
-                <a href={link} className="link dim black-60">
-                  {link.length > 30 ? link.substr(0, 30) : link }
-                </a>
-                <a href="https://semver.org" style={{'color': '#325288', textDecoration: 'none'}}>
-                  <h2>{title}</h2>
-                </a>
-                <p style={{ color: '#041C32' }}>
-                  {description.substr(0, 100)}
-                </p>
-              </div>
-            )) : ''}
+            {loading
+              ? "Loading..."
+              : results.length
+              ? results?.map(({ title, link, description }) => (
+                  <div key={uuidv4()} className="w-100 bg-white mb2 pa3">
+                    <a href={link} target="_blank" className="link dim black-60">
+                      {description?.substr(0, 30)}
+                    </a>
+                    <a
+                      href={link}
+                      target="_blank"
+                      style={{ color: "#325288", textDecoration: "none" }}
+                    >
+                      <h2>{title}</h2>
+                    </a>
+                    <p style={{ color: "#041C32" }}>
+                      {description?.substr(0, 100)}
+                    </p>
+                  </div>
+                ))
+              : ""}
           </div>
         </section>
       )
@@ -75,36 +83,18 @@ const Results = () => {
       return (
         <section className="w-100 bg-near-white min-vh-100 pt1 pt2-l">
           <div className="images__result-grid">
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
-            <div className="tc">
-              <img src="https://via.placeholder.com/150" />
-              <p className="fw7">Some title</p>
-              <p>image source</p>
-            </div>
+            {results.length ? results.map((result) => (
+              <div key={uuidv4()} className="tc shadow-5 pv3 ph2">
+                <a href={result?.link?.href} 
+                  style={{ color: "#325288", textDecoration: "none" }} 
+                  target="_blank"
+                >
+                  <img src={result?.image?.src} className="grow" />
+                  <p className="fw6 f5" style={{wordWrap: 'break-word'}}>{result.link.title}</p>
+                  <p style={{wordWrap: 'break-word'}}>{result?.link?.href?.substr(0, 25)}...</p>
+                </a>
+              </div>
+            )) : '' }
           </div>
         </section>
       )

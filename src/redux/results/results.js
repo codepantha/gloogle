@@ -1,6 +1,7 @@
 const GET_RESULTS_REQUEST = "GET_RESULTS_REQUEST";
 const GET_RESULTS_SUCCESS = "GET_RESULTS_SUCCESS";
 const GET_RESULTS_FAILED = "GET_RESULTS_FAILED";
+const GET_IMAGES_SUCCESS = "GET_IMAGES_SUCCESS";
 const BASEURL = 'https://google-search3.p.rapidapi.com/api/v1';
 
 export const getResults = (type, searchQuery) => (dispatch) => {
@@ -8,7 +9,7 @@ export const getResults = (type, searchQuery) => (dispatch) => {
 
   const fetchResults = async () => {
     try {
-      const res = await fetch(`${BASEURL}/${type}/q=${searchQuery}`, {
+      const res = await fetch(`${BASEURL}${type}/q=${searchQuery}`, {
         method: 'GET',
         headers: {
           'x-user-agent': 'desktop',
@@ -18,7 +19,11 @@ export const getResults = (type, searchQuery) => (dispatch) => {
         }
       });
       const data = await res.json();
-      dispatch({ type: GET_RESULTS_SUCCESS, payload: data.results })
+      console.log({ data })
+      if (type === '/search')
+        dispatch({ type: GET_RESULTS_SUCCESS, payload: data.results })
+      else if (type === '/images')
+        dispatch({ type: GET_IMAGES_SUCCESS, payload: data.image_results })
     } catch (e) {
       dispatch({ type: GET_RESULTS_FAILED, payload: "Ooops! Something bad happened." })
     }
@@ -37,6 +42,8 @@ const resultsReducer = (state = initialState, action) => {
       return { loading: true, results: [] };
     case GET_RESULTS_SUCCESS:
       return { loading: false, results: action.payload };
+    case GET_IMAGES_SUCCESS:
+      return { loading: false, results: action.payload }
     case GET_RESULTS_FAILED:
       return { loading: false, results: action.payload }
     default:
