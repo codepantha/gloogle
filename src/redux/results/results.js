@@ -3,7 +3,6 @@ const GET_RESULTS_SUCCESS = "GET_RESULTS_SUCCESS";
 const GET_RESULTS_FAILED = "GET_RESULTS_FAILED";
 const GET_IMAGES_SUCCESS = "GET_IMAGES_SUCCESS";
 const GET_NEWS_SUCCESS = "GET_NEWS_SUCCESS";
-const GET_VIDEOS_SUCCESS = "GET_VIDEOS_SUCCESS";
 const BASEURL = 'https://google-search3.p.rapidapi.com/api/v1';
 
 export const getResults = (type, searchQuery) => (dispatch) => {
@@ -21,15 +20,12 @@ export const getResults = (type, searchQuery) => (dispatch) => {
         }
       });
       const data = await res.json();
-      console.log({ data })
       if (type === '/search')
         dispatch({ type: GET_RESULTS_SUCCESS, payload: data.results })
       else if (type === '/images')
         dispatch({ type: GET_IMAGES_SUCCESS, payload: data.image_results })
       else if (type === '/news')
         dispatch({ type: GET_NEWS_SUCCESS, payload: data.entries })
-      else if (type === '/videos')
-        dispatch({ type: GET_VIDEOS_SUCCESS, payload: data.results })
     } catch (e) {
       dispatch({ type: GET_RESULTS_FAILED, payload: "Ooops! Something bad happened." })
     }
@@ -51,8 +47,6 @@ const resultsReducer = (state = initialState, action) => {
     case GET_IMAGES_SUCCESS:
       return { loading: false, results: action.payload }
     case GET_NEWS_SUCCESS:
-      return { loading: false, results: action.payload }
-    case GET_VIDEOS_SUCCESS:
       return { loading: false, results: action.payload }
     case GET_RESULTS_FAILED:
       return { loading: false, results: action.payload }

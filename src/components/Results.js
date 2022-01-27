@@ -28,6 +28,7 @@ const Results = () => {
                     <a
                       href={link}
                       target="_blank"
+                      rel="noreferrer"
                       className="link dim black-60"
                     >
                       {description?.substr(0, 30)}
@@ -35,6 +36,7 @@ const Results = () => {
                     <a
                       href={link}
                       target="_blank"
+                      rel="noreferrer"
                       style={{ color: "#325288", textDecoration: "none" }}
                     >
                       <h2>{title}</h2>
@@ -60,9 +62,9 @@ const Results = () => {
                     href={result?.link}
                     style={{ color: "#325288", textDecoration: "none" }}
                     target="_blank"
+                    rel="noreferrer"
                   >
-                    <p className="f4 fw6 lh-title mb1">{result ?.title_detail ?.value}</p>
-                    <p className="f7 fw6 tracked mt2 black-60">Source: {result?.source.href}</p>
+                    <p className="f4 fw6 lh-title mb1">{result?.title_detail?.value}</p>
                   </a>
                 </div>
               );
@@ -82,8 +84,9 @@ const Results = () => {
                       href={result?.link?.href}
                       style={{ color: "#325288", textDecoration: "none" }}
                       target="_blank"
+                      rel="noreferrer"
                     >
-                      <img src={result?.image?.src} className="grow" />
+                      <img src={result?.image?.src} alt={`${result?.image?.alt}_gloogle`} className="grow" />
                       <p className="fw6 f5" style={{ wordWrap: "break-word" }}>
                         {result.link.title}
                       </p>
