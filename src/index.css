@@ -6,12 +6,13 @@
 }
 
 body {
-  padding-bottom: 350px;
+  min-height: 100vh;
   overflow-x: hidden;
+  margin-bottom: 5rem;
 }
 
 .App {
-  max-width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
