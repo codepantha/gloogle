@@ -14,7 +14,10 @@ const Search = () => {
   const searchType = location.pathname
 
   useEffect(() => {
-    dispatch(getResults(searchType, debouncedValue));
+    if (searchType === '/videos')
+      dispatch(getResults('/search', `${debouncedValue} videos`))
+    else
+      dispatch(getResults(searchType, debouncedValue));
   }, [debouncedValue, searchType, dispatch]);
 
   return (

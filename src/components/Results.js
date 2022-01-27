@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import ReactPlayer from 'react-player';
 
 const Results = () => {
   const location = useLocation();
@@ -61,6 +62,7 @@ const Results = () => {
                     target="_blank"
                   >
                     <p className="f4 fw6 lh-title mb1">{result ?.title_detail ?.value}</p>
+                    <p className="f7 fw6 tracked mt2 black-60">Source: {result?.source.href}</p>
                   </a>
                 </div>
               );
@@ -96,7 +98,16 @@ const Results = () => {
     case "/videos":
       return (
         <section className="w-100 bg-near-white min-vh-100 pt1 pt2-l">
-          VIDEOS
+          <div className="flex justify-around flex-wrap">
+            {results?.map((result) => {
+              return (
+                <div key={uuidv4()} className="bg-white mb2 pa3">
+                  <ReactPlayer url={result?.link} controls width="350px" height="200px" />
+                  <p className="mt2 pa3 f6">{result.title}</p>
+                </div>
+              );
+            })}
+          </div>
         </section>
       );
 
