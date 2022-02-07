@@ -51,7 +51,7 @@
 
 ## About The Project
 
-"Gloogle" is a Google clone SPA built with React and Redux, and uses an API to give you search, news, image, and video results for any search query.
+"Gloogle" is a Google clone mobile web application built with React and Redux, and uses an API to give you search, news, image, and video results for any search query.
 
 ### Built With
 
