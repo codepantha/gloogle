@@ -10,7 +10,7 @@ export const getResults = (type, searchQuery) => (dispatch) => {
 
   const fetchResults = async () => {
     try {
-      const res = await fetch(`${BASEURL}${type}/q=${searchQuery}`, {
+      const res = await fetch(`${BASEURL}${type}/q=${searchQuery}&num=40`, {
         method: 'GET',
         headers: {
           'x-user-agent': 'desktop',
