@@ -113,4 +113,4 @@ Contributions are what make the open source community such an amazing place to b
 License Free.
 
 ## ⭐️ Acknowledgments
-The amazing Google search api [currency api](https://rapidapi.com/apigeek/api/google-search3/) behind this project.
+The amazing [Google search api](https://rapidapi.com/apigeek/api/google-search3/) behind this project.
