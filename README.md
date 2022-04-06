@@ -18,9 +18,9 @@
     ·
     <a href="https://gloogle.netlify.app/"><strong>Live Demo</strong></a>
     ·
-    <a href="https://github.com/codepantherr/gloogle/issues">Report Bug</a>
+    <a href="https://github.com/codepantha/gloogle/issues">Report Bug</a>
     ·
-    <a href="https://github.com/codepantherr/gloogle/issues">Request Feature</a>
+    <a href="https://github.com/codepantha/gloogle/issues">Request Feature</a>
   </p>
 </div>
 
@@ -64,8 +64,8 @@
 ## Authors
 👤 **Eze Promisie**
 
-- GitHub: [@Eze Promisie](https://github.com/codepantherr)
-- Twitter: [@Eze Promisie](https://twitter.com/codepantherr)
+- GitHub: [@codepantha](https://github.com/codepantha)
+- Twitter: [@codepantha](https://twitter.com/codepantha)
 - LinkedIn: [Eze Promisie](https://www.linkedin.com/in/promise-eze/)
 
 ## Getting Started
@@ -82,7 +82,7 @@
 
 1. Clone the repo
    ```sh
-   https://github.com/codepantherr/gloogle.git
+   https://github.com/codepantha/gloogle.git
    ```
 
 2. Install NPM packages
@@ -96,7 +96,7 @@
 
 ## Roadmap
 
-See the [open issues](https://github.com/codepantherr/gloogle/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/codepantha/gloogle/issues) for a list of proposed features (and known issues).
 
 ## Contributing
 
