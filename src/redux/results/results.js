@@ -22,7 +22,7 @@ export const getResults = (type, searchQuery) => (dispatch) => {
       const data = await res.json();
       if (type === '/search')
         dispatch({ type: GET_RESULTS_SUCCESS, payload: data.results })
-      else if (type === '/images')
+      else if (type === '/image')
         dispatch({ type: GET_IMAGES_SUCCESS, payload: data.image_results })
       else if (type === '/news')
         dispatch({ type: GET_NEWS_SUCCESS, payload: data.entries })
