@@ -16,8 +16,6 @@ const Results = () => {
   const maxPages = Math.ceil(results.length / 10);
   const [pageResults, setPageResults] = useState(results?.slice(0, pageLimit));
 
-  console.log(pageResults);
-
   useEffect(() => {
     // on re-render, set pageResults to be 10 items depending on the current page
     setPageResults(

@@ -10,10 +10,11 @@ const Search = () => {
   const [debouncedValue] = useDebounce(input, 300);
 
   const dispatch = useDispatch();
-  const location = useLocation()
-  const searchType = location.pathname
+  const location = useLocation();
+  const searchType = location.pathname;
 
   useEffect(() => {
+    if (!debouncedValue) return;
     if (searchType === '/videos')
       dispatch(getResults('/search', `${debouncedValue} videos`))
     else
