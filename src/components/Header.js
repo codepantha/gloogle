@@ -37,7 +37,7 @@ const Header = () => {
           <p className="f5">Search</p>
         </NavLink>
         <NavLink
-          to="/images"
+          to="/image"
           className={({ isActive }) =>
             isActive
               ? "gray link link:active pointer bb mh3-l flex items-center"

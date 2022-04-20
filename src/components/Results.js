@@ -111,7 +111,7 @@ const Results = () => {
         </section>
       );
 
-    case "/images":
+    case "/image":
       return (
         <section
           className="w-100 bg-near-white pt1 pt2-l"
